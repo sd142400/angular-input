@@ -1,0 +1,70 @@
+<!-- 撸多了代码，就有可能找不到女盆友 -->
+
+<html>
+	<head>
+		<meta charset = "utf-8" />
+		<script src="http://cdn.bootcss.com/angular.js/1.4.3/angular.min.js"></script>
+		<script type="text/javascript" src = "./allInput.js"></script>
+		<script type = "text/javascript" src = "./controller.js"></script>
+	</head>
+	<body ng-app = "test" ng-controller = "index">
+		<p>
+			<h3>测试filter</h3>
+			变量名：  a =======  真实值： {{a}} ====== 过滤后的值：{{a|status}} <br/>
+			变量名：  b =======  真实值： {{b}} ====== 过滤后的值：{{b|status}} <br/>
+			变量名：  c =======  真实值： {{c}} ====== 过滤后的值：{{c|status}} <br/>
+			变量名：  d =======  真实值： {{d}} ====== 过滤后的值：{{d|status}} <br/>
+			变量名：  e =======  真实值： {{e}} ====== 过滤后的值：{{e|status}} <br/>
+			变量名：  f =======  真实值： {{f}} ====== 过滤后的值：{{f|status}} <br/>
+			变量名：  g =======  真实值： {{g}} ====== 过滤后的值：{{g|status}} <br/>
+		</p>
+		<p>
+			<h3>测试select</h3>
+			<p>
+				<!-- 这个地方一定要有ng-model -->
+				不用自主配置的情况：
+				<select-input ng-type = "status" ng-model = "a"/>
+			</p>
+			======================================
+			<p>
+				自主配置：
+				<pre>
+				$scope.option = {
+					data : {
+							0 : '我知道',
+							1 : '我不知道',
+							2 : '打我',
+							3 : '不打我'
+					}
+				}
+				</pre>
+				需要自主配置的情况：
+				<span><select-input my-config = "option" ng-model = "a" /></span>
+			</p>
+		</p>
+		<p>
+			<h3>测试radio</h3>
+			<p>
+				<!-- 这个地方一定要有ng-model -->
+				不用自主配置的情况：
+				<radio-input name = "hehe" ng-type = "status" ng-model = "model.a"/>
+			</p>
+			======================================
+			<p>
+				自主配置：
+				<pre>
+				$scope.option = {
+					data : {
+							0 : '我知道',
+							1 : '我不知道',
+							2 : '打我',
+							3 : '不打我'
+					}
+				}
+				</pre>
+				需要自主配置的情况{{a}}：
+				<radio-input name = "haha" my-config = "option" ng-model = "model.a" />
+			</p>
+		</p>
+	</body>
+</html>
